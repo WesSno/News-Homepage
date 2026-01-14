@@ -1,0 +1,372 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-family: "Inter", sans-serif;
+
+  /***************** PRIMARY ********************/
+
+  --soft-orange: hsl(35, 77%, 62%);
+  --soft-red: hsl(5, 85%, 63%);
+
+  /***************** NEUTRAL ********************/
+
+  --off-white: hsl(36, 100%, 99%);
+  --grayish-blue: hsl(233, 8%, 79%);
+  --dark-grayish-blue: hsl(236, 13%, 42%);
+  --very-dark-blue: hsl(240, 100%, 5%);
+}
+
+body {
+  font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--off-white);
+  padding: 0 1rem;
+}
+
+/************ NAVIGATION BAR ***************/
+.page {
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+#menu-toggle:checked ~ .page {
+  height: 100vh;
+  overflow: hidden;
+}
+
+header {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  position: relative;
+}
+
+.nav .logo {
+  width: 2.5rem;
+  cursor: pointer;
+}
+
+.nav .logo img {
+  width: 100%;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger img {
+  width: 32px;
+  height: auto;
+}
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100vh;
+  background: var(--off-white);
+  padding: 6rem 2rem;
+  list-style: none;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.nav-menu li {
+  margin-bottom: 1.5rem;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--dark-grayish-blue);
+  font-size: 1.2rem;
+  font-weight: 400;
+  transition: 0.2s ease;
+}
+
+.nav-menu a:hover {
+  text-decoration: underline;
+  color: var(--soft-red);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.close-icon {
+  display: none;
+}
+
+#menu-toggle:checked ~ .page .nav-menu {
+  right: 0;
+}
+
+#menu-toggle:checked ~ .page .overlay {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#menu-toggle:checked ~ .page .hamburger .open-icon {
+  display: none;
+}
+
+#menu-toggle:checked ~ .page .hamburger .close-icon {
+  display: block;
+}
+
+main {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/********** SECTION ONE *************/
+
+#intro-component {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 50px;
+}
+
+#intro-component .intro-img {
+  width: 100%;
+}
+
+.intro-img img {
+  width: 100%;
+}
+
+#intro-component h1 {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 50px;
+}
+
+#intro-component p {
+  color: var(--dark-grayish-blue);
+  line-height: 23px;
+}
+
+#intro-component button {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  width: 60%;
+  padding: 1.2rem 0.5rem;
+  border: none;
+  background-color: var(--soft-red);
+  color: var(--very-dark-blue);
+  transition: 0.2s ease;
+}
+
+#intro-component button:hover {
+  background-color: var(--very-dark-blue);
+  color: var(--off-white);
+  cursor: pointer;
+}
+
+/************* SECTION TWO **************/
+#new {
+  display: grid;
+  gap: 20px;
+  background-color: var(--very-dark-blue);
+  padding: 1.5rem;
+  margin-bottom: 50px;
+}
+
+#new h2 {
+  font-size: 2.5rem;
+  color: var(--soft-orange);
+}
+
+#new .item {
+  display: grid;
+  gap: 15px;
+  border-bottom: 1px solid var(--grayish-blue);
+  padding-bottom: 30px;
+  padding-top: 10px;
+}
+
+#new .item.third {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+#new .item h3 a {
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: var(--off-white);
+  transition: 0.2s ease;
+}
+
+#new .item h3 a:hover {
+  color: var(--soft-orange);
+}
+
+#new .item p {
+  font-weight: 400;
+  color: var(--grayish-blue);
+}
+
+/************ SECTION THREE *************/
+#old {
+  display: grid;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+#old .item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  grid-template-rows: 40px 30px 40px;
+  gap: 15px;
+}
+
+#old .item .item-img {
+  grid-column: 1 / 2;
+  grid-row: 1 / -1;
+  width: 100%;
+}
+
+#old .item .item-img img {
+  width: 100%;
+  vertical-align: bottom;
+  height: 100%;
+}
+
+#old .item h2 {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--soft-red);
+}
+
+#old .item h3 a {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  text-decoration: none;
+  color: var(--very-dark-blue);
+  transition: 0.2s ease;
+}
+
+#old .item h3 a:hover {
+  color: var(--soft-red);
+}
+
+#old .item p {
+  grid-row: 3 / -1;
+  color: var(--dark-grayish-blue);
+  font-weight: 400;
+  line-height: 25px;
+  align-self: end;
+}
+
+@media only screen and (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+
+  .overlay {
+    display: none;
+  }
+
+  .nav-menu {
+    position: static;
+    height: auto;
+    width: auto;
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+    transition: none;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  main {
+    display: grid;
+    grid-template-columns: 700px 400px;
+    gap: 20px;
+  }
+
+  #intro-component {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 300px 100px 2px 55px;
+    gap: 8px;
+  }
+
+  #intro-component .intro-img {
+    grid-column: 1 / -1;
+  }
+
+  #intro-component h1 {
+    width: 250px;
+    font-size: 50px;
+    grid-column: 1 / 2;
+    grid-row: 2 / -1;
+  }
+
+  #intro-component p {
+    grid-column: 2 / -1;
+  }
+
+  #intro-component button {
+    grid-column: 2 / -1;
+    grid-row: 4 / -1;
+  }
+
+  #old {
+    grid-column: 1 / -1;
+    grid-template-columns: 350px 350px 350px;
+  }
+
+  #old .item {
+    grid-template-rows: 40px 30px 40px;
+  }
+
+  #old .item .item-img img {
+    height: auto;
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+  transition: 0.2s ease;
+}
+
+.attribution a:hover {
+  color: var(--soft-red);
+}
