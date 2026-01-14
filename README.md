@@ -31,8 +31,8 @@ Users are be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/mobile-first-news-homepage-UYU92tT8HQ)
+- Live Site URL: [Netlify](https://kbk-news-homepage.netlify.app/)
 
 ## My process
 
